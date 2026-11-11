@@ -164,3 +164,88 @@ Creamos una nueva que sea una llamada y la guardamos.
 ![Captura25](capturas/cap30.png)
 ![Captura26](capturas/cap31.png)
 
+## 5. BÚSQUEDA GUARDADA
+
+Para buscar facturas, tenemos que activar la funcionalidad de `Facturación`.
+
+Una vez hecho, en la barra de búsqueda, hacemos una búsqueda filtrada. 
+
+Primero tenemos que buscar las facturas cuyo `Estado` -> `es igual` -> `Registrado`.
+
+![Captura27](capturas/cap32.png)
+
+Para agruparlas por clientes, en el apartado `Agrupar por` seleccionamos `Socios`.
+
+![Captura28](capturas/cap33.png)
+
+Para guardar la búsqueda actual como favorita le damos a `Guardar búsqueda actual` y le ponemos un nombre.
+
+![Captura29](capturas/cap34.png)
+
+Este sería el resultado final.
+
+![Captura30](capturas/cap35.png)
+
+## 6. MODO DESARROLLADOR
+
+El modo desarrollador se puede activar de 2 maneras diferentes.
+
+El primer modo es en `Ajustes` -> `Herramientas de desarrollador` -> `Activar modo desarrollador`.
+
+![Captura31](capturas/cap36.png)
+
+El segundo modo añadiendo `?debug=1` a la URL.
+
+![Captura32](capturas/cap37.png)
+
+Sabremos que estaremos en modo desarrollador porque nos aparecerá el icono de una cucaracha arriba a la derecha en Odoo.
+
+Para desactivar este modo, podemos hacerlo desde ajustes, poniendo `?debug=0` en la URL o clicando en el icono de la cucaracha.
+
+Pruebas modo desarrollador:
+
+![Captura33](capturas/cap38.png)
+
+| Elemento | Nombre técnico |
+|---|---|
+| Campo | `vat` |
+| Modelo | `res.partner` |
+| Tipo | `char` |
+| Widget | `Texto (field_partner_autocomplete)` |
+| Contexto | `{}` |
+
+![Captura34](capturas/cap39.png)
+
+| Elemento | Nombre técnico |
+|---|---|
+| Campo | `website` |
+| Modelo | `res.partner` |
+| Tipo | `char` |
+| Widget | `URL (url)` |
+| Contexto | `{}` |
+
+![Captura35](capturas/cap43.png)
+
+| Elemento | Nombre técnico |
+|---|---|
+| Campo | `invoice_date` |
+| Modelo | `account.move` |
+| Tipo | `date` |
+| Contexto | `{}` |
+| Invisible | `move_type not in ("out_invoice", "out_refound", "out_receipt")` |
+| Sólo lectura | `state != "draft"` |
+
+## 7. INCIDENCIAS
+
+| Fecha | Síntoma | Causa | Solución |
+|---|---|---|---|
+| 11/11 | No me dejaba mandar el presupuesto | No tenía un almacén creado | Crear un almacén |
+
+## 8. DECLARACIÓN USO DE IA
+
+| Problema | Uso |
+|---|---|
+| No me dejaba enviar la factura | Le pegué el error que me salía y me dijo que era de no haber creado el almacén |
+| En la búsqueda filtrada no encontraba la opción Clientes | Le pregunté por qué y me dijo que se refiere a ellos como Socios |
+| En la búsqueda filtrada no sabía como buscar las facturas publicadas porque no hay una opción que se llame publicadas | Le pregunté como se hacía y me dijo que se refería a ellas como Registrado |
+
